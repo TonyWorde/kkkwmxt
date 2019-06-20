@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkkwm.dao.OrderItemDao">
+<!--  
+	<resultMap type="com.kkkwm.pojo.OrderItem" id="orderitemMap">
+		<result column="item_id" property="item_id" />
+		<result column="order_on" property="order_on" />
+		<result column="food_id" property="food_id" />
+		<result column="food_name" property="food_name" />
+		<result column="food_price" property="food_price" />
+		<result column="food_num" property="food_num" />
+		<result column="food_total" property="food_total" />
+		<result column="shop_id" property="shop_id" />
+		<result column="shop_name" property="shop_name" />
+		<result column="user_id" property="user_id" />
+	</resultMap>
+ -->
+	<insert id="insertOrderItem" parameterType="orderitem">
+		insert
+		into tb_OrderItem(order_on,
+		food_id,
+		food_name,
+		food_price,
+		food_num,
+		food_total,
+		user_id,
+		shop_id,
+		shop_name) values(#{order_on},
+		#{food_id},
+		#{food_name},
+		#{food_price},
+		#{food_num},
+		#{food_total},
+		#{user_id},
+		#{shop_id},
+		#{shop_name}
+		)
+	</insert>
+
+	<delete id="deleteOrderItem" parameterType="string">
+		delete from
+		tb_OrderItem where order_on=#{order_on}
+	</delete>
+ 	
+	<select id="getOrderItemAll" resultType="orderitem">
+		select * from tb_OrderItem where order_on=#{order_on}
+	</select>
+<!-- 
+	<select id="getOrderItemAll" resultMap="orderitemMap">
+		select * from tb_OrderItem where order_on=#{order_on}
+	</select>
+ -->
+</mapper>

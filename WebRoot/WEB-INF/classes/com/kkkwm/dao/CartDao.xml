@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkkwm.dao.CartDao">
+	
+	<insert id="insertCart" parameterType="cart" >
+		insert into tb_Cart(food_id,
+		food_name,
+		food_price,
+		cart_num,
+		cart_total,
+		shop_id,
+		user_id,
+		shop_name) values(
+		#{food_id},
+		#{food_name},
+		#{food_price},
+		#{cart_num},
+		#{cart_total},
+		#{shop_id},
+		#{user_id},
+		#{shop_name}
+		)
+	</insert>
+	
+	<delete id="deleteCartByUser" parameterType="string">
+		delete from tb_Cart where user_id=#{user_id}
+	</delete>
+	
+	<delete id="deleteCartByShop" parameterType="string">
+		delete from tb_Cart where shop_id=#{shop_id}
+	</delete>
+	
+	<delete id="deleteCartByID">
+		delete from tb_Cart where cart_id=#{cart_id}
+	</delete>
+	
+	<update id="updateCart" parameterType="cart">
+		update tb_Cart set 
+		cart_num=#{cart_num},
+		cart_total=#{cart_total} where cart_id=#{cart_id}
+	</update>
+	
+	<select id="getCart" parameterType="string" resultType="cart">
+		select * from tb_Cart where Cart_id=#{cart_id}
+	</select>
+	
+	<select id="getCartByUser" parameterType="string" resultType="cart">
+		select * from tb_Cart where user_id=#{user_id}
+	</select>
+	
+	<select id="getCartByID" resultType="cart">
+		select * from tb_Cart where food_id=#{food_id} and shop_id=#{shop_id}
+	</select>
+
+</mapper>

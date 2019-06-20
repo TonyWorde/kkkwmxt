@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkkwm.dao.CommentDao">
+	<insert id="insertComment" parameterType="comment" >
+		insert into tb_Comment(comment_content,user_id)
+		values(
+		#{comment_content},
+		#{user_id}
+		)
+	</insert>
+	
+	<select id="getUserComment" parameterType="string" resultType="comment">
+		select * from tb_comment Where user_id=#{user_id}
+	</select>
+</mapper>

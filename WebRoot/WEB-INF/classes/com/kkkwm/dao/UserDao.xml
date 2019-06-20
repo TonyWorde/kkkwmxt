@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkkwm.dao.UserDao">
+	
+	<insert id="insertUser" parameterType="user">
+		insert into tb_User values(
+		#{user_id},
+		#{user_pwd},
+		#{user_name},
+		#{user_sex},
+		#{user_phone},
+		#{user_balance}
+		)
+	</insert>
+	
+	<delete id="deleteUser" parameterType="string">
+		delete from tb_User where user_id=#{user_id}
+	</delete>
+	
+	<update id="updateUser" parameterType="user">
+		update tb_User set 
+		user_pwd=#{user_pwd},
+		user_name=#{user_name},
+		user_sex=#{user_sex},
+		user_phone=#{user_phone},user_balance=#{user_balance} where user_id=#{user_id}
+	</update>
+	
+	<select id="getUser" parameterType="string" resultType="user">
+		select user_id,
+		user_pwd,
+		user_name,
+		user_sex,
+		user_phone,
+		user_balance from tb_User where user_id=#{user_id}
+	</select>
+	
+	<select id="getUserAll" resultType="user">
+		select * from tb_User
+	</select>
+
+</mapper>

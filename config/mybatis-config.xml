@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<configuration>
+<!-- 	<properties resource="jdbc.properties"/> -->
+	
+	<settings>
+		<setting name="cacheEnabled" value="true"/>
+		<setting name="useGeneratedKeys" value="true" />
+<!-- 		<setting name="mapUnderscoreToCamelCase" value="true" /> -->
+	</settings>
+
+	<typeAliases>
+		<typeAlias alias="admin" type="com.kkkwm.pojo.Admin"/>
+		<typeAlias alias="user" type="com.kkkwm.pojo.User"/>
+		<typeAlias alias="seller" type="com.kkkwm.pojo.Seller"/>
+		<typeAlias alias="rider" type="com.kkkwm.pojo.Rider"/>
+		<typeAlias alias="shop" type="com.kkkwm.pojo.Shop"/>
+		<typeAlias alias="food" type="com.kkkwm.pojo.Food"/>
+		<typeAlias alias="cart" type="com.kkkwm.pojo.Cart"/>
+		<typeAlias alias="order" type="com.kkkwm.pojo.Order"/>
+		<typeAlias alias="orderitem" type="com.kkkwm.pojo.OrderItem"/>
+		<typeAlias alias="comment" type="com.kkkwm.pojo.Comment"/>		
+	</typeAliases>
+	
+<!-- 	
+  	<environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+      </dataSource>
+   	 </environment>
+  	</environments>
+-->  
+	<mappers>
+    	<mapper resource="com/kkkwm/dao/AdminDao.xml"/>
+    	<mapper resource="com/kkkwm/dao/UserDao.xml"/>
+    	<mapper resource="com/kkkwm/dao/SellerDao.xml"/>
+    	<mapper resource="com/kkkwm/dao/RiderDao.xml"/>
+    	<mapper resource="com/kkkwm/dao/ShopDao.xml"/>
+    	<mapper resource="com/kkkwm/dao/FoodDao.xml"/>
+    	<mapper resource="com/kkkwm/dao/CartDao.xml"/>
+    	<mapper resource="com/kkkwm/dao/OrderDao.xml"/>
+    	<mapper resource="com/kkkwm/dao/OrderItemDao.xml"/>
+    	<mapper resource="com/kkkwm/dao/CommentDao.xml"/>
+    </mappers>
+
+
+</configuration>

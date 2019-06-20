@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkkwm.dao.ShopDao">
+	
+	<insert id="insertShop" parameterType="shop" >
+		insert into tb_Shop values(
+		#{shop_id},
+		#{shop_name},
+		#{shop_address},
+		#{seller_id},
+		#{shop_phone}
+		)
+	</insert>
+	
+	<delete id="deleteShop" parameterType="string">
+		delete from tb_Shop where shop_id=#{shop_id}
+	</delete>
+	
+	<delete id="deleteShopBySeller" parameterType="string">
+		delete from tb_Shop where seller_id=#{seller_id}
+	</delete>
+	
+	<update id="updateShop" parameterType="shop">
+		update tb_Shop set 
+		shop_name=#{shop_name},
+		shop_address=#{shop_address},
+		seller_id=#{seller_id},
+		shop_phone=#{shop_phone} where shop_id=#{shop_id}
+	</update>
+	
+	<select id="getShop" parameterType="string" resultType="shop">
+		select * from tb_Shop where seller_id=#{seller_id}
+	</select>
+	
+	<select id="getShopByID" parameterType="string" resultType="shop">
+		select * from tb_Shop where shop_id=#{shop_id}
+	</select>
+	
+	<select id="getShopAll" resultType="shop">
+		select * from tb_Shop
+	</select>
+
+</mapper>

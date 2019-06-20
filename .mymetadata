@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="kkkwm"
+  id="myeclipse.1556884128537"
+  context-root="/kkkwm"
+  j2ee-spec="6.0"
+  archive="kkkwm.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

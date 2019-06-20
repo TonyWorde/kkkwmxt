@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkkwm.dao.SellerDao">
+	
+	<insert id="insertSeller" parameterType="seller" >
+		insert into tb_Seller values(
+		#{seller_id},
+		#{seller_pwd},
+		#{seller_name},
+		#{seller_sex},
+		#{seller_phone}
+		)
+	</insert>
+	
+	<delete id="deleteSeller" parameterType="string">
+		delete from tb_Seller where seller_id=#{seller_id}
+	</delete>
+	
+	<update id="updateSeller" parameterType="seller">
+		update tb_Seller set 
+		seller_pwd=#{seller_pwd},
+		seller_name=#{seller_name},
+		seller_sex=#{seller_sex},
+		seller_phone=#{seller_phone} where seller_id=#{seller_id}
+	</update>
+	
+	<select id="getSeller" parameterType="string" resultType="seller">
+		select seller_id,
+		seller_pwd,
+		seller_name,
+		seller_sex,
+		seller_phone from tb_Seller where seller_id=#{seller_id}
+	</select>
+	
+	<select id="getSellerAll" resultType="seller">
+		select * from tb_Seller
+	</select>
+
+</mapper>

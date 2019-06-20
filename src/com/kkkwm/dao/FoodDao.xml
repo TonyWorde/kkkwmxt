@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkkwm.dao.FoodDao">
+	
+	<insert id="insertFood" parameterType="food" >
+		insert into tb_Food values(
+		#{shop_id},
+		#{food_id},
+		#{food_name},
+		#{food_price},
+		#{food_img}
+		)
+	</insert>
+	
+	<delete id="deleteFoodById" parameterType="string">
+		delete from tb_Food where food_id=#{food_id}
+	</delete>
+	
+	<delete id="deleteFoodByShop" parameterType="string">
+		delete from tb_Food where shop_id=#{shop_id}
+	</delete>
+	
+	<update id="updateFood" parameterType="food">
+		update tb_Food set 
+		food_name=#{food_name},
+		food_price=#{food_price},
+		food_img=#{food_img} where food_id=#{food_id}
+	</update>
+	
+	<select id="getFood" parameterType="string" resultType="food">
+		select * from tb_Food where food_id=#{food_id} and shop_id=#{shop_id}
+	</select>
+	
+	<select id="getFoodAll" parameterType="string" resultType="food">
+		select * from tb_Food Where shop_id=#{shop_id}
+	</select>
+
+</mapper>

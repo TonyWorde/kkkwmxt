@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkkwm.dao.RiderDao">
+	
+	<insert id="insertRider" parameterType="rider">
+		insert into tb_Rider values(
+		#{rider_id},
+		#{rider_pwd},
+		#{rider_name},
+		#{rider_sex},
+		#{rider_phone}
+		)
+	</insert>
+	
+	<delete id="deleteRider" parameterType="string">
+		delete from tb_Rider where rider_id=#{rider_id}
+	</delete>
+	
+	<update id="updateRider" parameterType="rider">
+		update tb_Rider set 
+		rider_pwd=#{rider_pwd},
+		rider_name=#{rider_name},
+		rider_sex=#{rider_sex},
+		rider_phone=#{rider_phone} where rider_id=#{rider_id}
+	</update>
+	
+	<select id="getRider" parameterType="string" resultType="rider">
+		select rider_id,
+		rider_pwd,
+		rider_name,
+		rider_sex,
+		rider_phone from tb_Rider where rider_id=#{rider_id}
+	</select>
+	
+	<select id="getRiderAll" resultType="rider">
+		select * from tb_Rider
+	</select>
+
+</mapper>

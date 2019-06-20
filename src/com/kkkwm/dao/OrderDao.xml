@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkkwm.dao.OrderDao">
+	
+	<insert id="insertOrder" parameterType="order" >
+		insert into tb_Order(order_on,
+		order_time,
+		order_price,
+		order_pay,
+		order_status,
+		order_address,
+		user_id,
+		shop_id,
+		rider_id,
+		user_phone,
+		shop_name) values(#{order_on},
+		#{order_time},
+		#{order_price},
+		#{order_pay},
+		#{order_status},
+		#{order_address},
+		#{user_id},
+		#{shop_id},
+		#{rider_id},
+		#{user_phone},
+		#{shop_name}
+		)
+	</insert>
+	
+	<delete id="deleteOrderByOn" parameterType="string">
+		delete from tb_Order where order_on=#{order_on}
+	</delete>
+	
+	<update id="updateOrder" parameterType="order">
+		update tb_Order set 
+		order_status=#{order_status},
+		rider_id=#{rider_id} where order_on=#{order_on}
+	</update>
+	
+	<select id="getOrder" parameterType="string" resultType="order">
+		select * from tb_Order where Order_on=#{order_on}
+	</select>
+	
+	<select id="getOrderAll" resultType="order">
+		select * from tb_Order
+	</select>
+	
+	<select id="getOrderAllByUser" parameterType="string" resultType="order">
+		select * from tb_Order where user_id=#{user_id}
+	</select>
+	
+	<select id="getOrderAllByShop" parameterType="string" resultType="order">
+		select * from tb_Order where shop_id=#{shop_id}
+	</select>
+	
+	<select id="getOrderAllByRider" parameterType="string" resultType="order">
+		select * from tb_Order where rider_id=#{rider_id}
+	</select>
+	
+	<select id="getOrderAllByStatus" resultType="order">
+		select * from tb_Order where order_status=#{order_status}
+	</select>
+
+</mapper>

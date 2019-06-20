@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkkwm.dao.AdminDao">
+	
+	<insert id="insertAdmin" parameterType="admin">
+		insert into tb_Admin values(#{ad_id},#{ad_pwd},#{ad_name},#{ad_sex},#{ad_phone})
+	</insert>
+	
+	<delete id="deleteAdmin" parameterType="String">
+		delete from tb_Admin where ad_id=#{ad_id}
+	</delete>
+	
+	<update id="updateAdmin" parameterType="admin">
+		update tb_Admin set ad_pwd=#{ad_pwd},ad_name=#{ad_name},ad_sex=#{ad_sex},ad_phone=#{ad_phone} where ad_id=#{ad_id}
+	</update>
+	
+	<select id="getAdmin" parameterType="String" resultType="admin">
+		select ad_id,ad_pwd,ad_name,ad_sex,ad_phone from tb_Admin where ad_id=#{ad_id}
+	</select>
+	
+	<select id="getAdminAll" resultType="admin">
+		select * from tb_Admin
+	</select>
+
+</mapper>
